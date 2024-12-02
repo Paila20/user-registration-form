@@ -84,13 +84,36 @@ document.getElementById("registrationForm").addEventListener("submit", function 
   // Clear any existing errors
   document.querySelectorAll(".error").forEach((el) => el.textContent = "");
   document.getElementById("successMessage").textContent = "";
+  document.querySelectorAll("input").forEach((field) => {
+    // field.classList.remove("input-valid");
+    field.style.border = "1px solid #ccc";  
+  });
+  
 
   // Validate all fields
   Object.keys(validationRules).forEach((fieldId) => {
     const errorElement = document.getElementById(`${fieldId}Error`);
+    const field = document.getElementById(fieldId);
+    if (fieldId === "gender") {
+      if (!validationRules[fieldId].validate()) {
+        errorElement.textContent = validationRules[fieldId].errorMessage;
+        field.classList.remove("input-invalid");
+        field.classList.remove("input-valid");
+      } else {
+        errorElement.textContent = ""; 
+        field.classList.remove("input-invalid");
+        field.classList.remove("input-valid"); 
+      }
+      return; 
+    }
     if (!validationRules[fieldId].validate()) {
       errorElement.textContent = validationRules[fieldId].errorMessage;
+      field.classList.add("input-invalid");
+      field.classList.remove("input-valid");
       isValid = false;
+    }else {
+      field.classList.remove("input-invalid");
+      field.classList.add("input-valid");
     }
   });
 
@@ -106,16 +129,48 @@ Object.keys(validationRules).forEach((fieldId) => {
   const errorElement = document.getElementById(`${fieldId}Error`);
 
   field.addEventListener("blur", () => {
+     if (fieldId === "gender") {
+      if (!validationRules[fieldId].validate()) {
+        errorElement.textContent = validationRules[fieldId].errorMessage;
+        field.classList.remove("input-invalid");
+        field.classList.remove("input-valid");
+      } else {
+        errorElement.textContent = ""; 
+        field.classList.remove("input-invalid");
+        field.classList.remove("input-valid"); 
+      }
+      return; 
+    }
+
     if (validationRules[fieldId].validate()) {
       errorElement.textContent = "";
+      field.classList.remove("input-invalid");
+      field.classList.add("input-valid");
     } else {
       errorElement.textContent = validationRules[fieldId].errorMessage;
+      field.classList.add("input-invalid");
+      field.classList.remove("input-valid");
     }
   });
 
   field.addEventListener("input", () => {
+    if (fieldId === "gender") {
+      if (!validationRules[fieldId].validate()) {
+        errorElement.textContent = validationRules[fieldId].errorMessage;
+        field.classList.remove("input-invalid");
+        field.classList.remove("input-valid");
+      } else {
+        errorElement.textContent = ""; 
+        field.classList.remove("input-invalid");
+        field.classList.remove("input-valid"); 
+      }
+      return; 
+    }
+
     if (validationRules[fieldId].validate()) {
       errorElement.textContent = "";
+      field.classList.remove("input-invalid");
+      field.classList.add("input-valid");
     }
   });
 });

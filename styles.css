@@ -12,27 +12,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background: #f5f5dc; */
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
    
   }
   
   .container{
     width: 100%;
     max-width: 750px;
-    background: rgba(0, 0, 0, 0.5);
+    /* background: rgba(0, 0, 0, 0.5); */
+    background: #F8F9FA;
     padding: 10px 28px;
     margin: 20px 28px 28px 28px;
     border-radius: 10px;
-    box-shadow: inset -2px 2px 2px white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    color: black;
+    /* box-shadow: inset -2px 2px 2px white; */
   }
   
   .form-title{
     font-size: 26px;
     font-weight: 600;
     text-align: center;
-    padding-bottom: 6px;
-    color: white;
+    padding-top: 6px;
+    padding-bottom: 15px;
+    color: green;
     text-shadow: 2px 2px 2px black;
-    border-bottom: solid 1px white;
+    border-bottom: solid 1px black;
+    /* background-color: green; */
   }
   
   .main-user-info{
@@ -55,23 +62,50 @@
    
   .user-input-box label{
     width: 95%;
-    color: white;
+    color: black;
     font-size: 20px;
     font-weight: 400;
     margin: 5px 0;
   }
   
-  .user-input-box input,select{
+  .user-input-box input{
     height: 40px;
     width: 95%;
-    border-radius: 7px;
+    /* border-radius: 7px; */
+    /* outline: none; */
+    /* border: none; */
+    border: 1px solid #ccc ;
+    padding: 0 10px;
+    border-radius: 6px;
+  }
+  .user-input-box input:hover{
     outline: none;
-    border: 1px solid grey;
+  }
+ 
+  .user-input-box select{
+    height: 40px;
+    width: 95%;
+   border: 1px solid #ccc;
+    outline: none;
+    border-radius: 6px;
     padding: 0 10px;
   }
   input[type="file"]{
     border-radius: 10px;
     padding-top: 10px;
+    border: none;
+    color: black;
+    /* width: 60%; */
+  }
+  input[type="file"]:hover{
+    border: none !important;
+  }
+  
+  input[type="file"] button{
+    border-radius: 10px;
+    padding-top: 10px;
+    border: none;
+    color: white;
   }
   .password-div{
     position: relative;
@@ -113,25 +147,31 @@
     margin-top: 5px;
   }
   .gender-title{
-    color:white;
+    color:black;
     font-size: 20px;
   
   }
   
   .gender-category{
-   
+    border: none !important;
     margin: 15px 0;
-    color: white;
+    color: black;
   }
-  
+  .gender-category:hover{
+  border: white !important;
+  }
   .gender-category label{
     padding: 0 20px 0 5px;
   }
-  
+  input[name="gender"] {
+    border: none !important;
+    outline: none !important;
+  }
   .gender-category label,
   .gender-category input,
   .form-submit-btn input{
     cursor: pointer;
+    border: white !important;
   }
   .checkbox-group{
     margin: 30px 0 30px 0px;
@@ -140,7 +180,7 @@
     margin-bottom: 10px;
   }
   .checkbox-group label{
-    color:blue;
+    color:black;
   }
   .form-submit-btn{
     margin-top: 20px;
@@ -155,7 +195,8 @@
     border:none;
     border-radius: 3px;
     color: rgb(209, 209, 209);
-    background: rgba(63, 114, 76, 0.7);
+    /* background: rgba(63, 114, 76, 0.7); */
+    background: navy;
   }
   
   .form-submit-btn button:hover{
@@ -177,6 +218,14 @@
     text-align: center;
     margin-top: 10px;
   }
+  .input-invalid {
+    border: 1px solid red !important;
+  }
+  
+  .input-valid {
+    border: 1px solid #ccc !important;
+  }
+  
   
   @media(max-width: 600px){
     .container{
@@ -202,9 +251,16 @@
     .main-user-info{
         max-height: 420px;
         overflow: auto;
+        /* padding: 20px 0 0 26px; */
+    }
+    .form-container{
+      padding: 0 0 0 20px;
     }
   
     .main-user-info::-webkit-scrollbar{
         width: 0;
+    }
+    input[type="file"]{
+      width: 70%;
     }
   }
