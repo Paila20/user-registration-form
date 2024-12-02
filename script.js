@@ -98,22 +98,22 @@ document.getElementById("registrationForm").addEventListener("submit", function 
       if (!validationRules[fieldId].validate()) {
         errorElement.textContent = validationRules[fieldId].errorMessage;
         field.classList.remove("input-invalid");
-        field.classList.remove("input-valid");
+        // field.classList.remove("input-valid");
       } else {
         errorElement.textContent = ""; 
         field.classList.remove("input-invalid");
-        field.classList.remove("input-valid"); 
+        // field.classList.remove("input-valid"); 
       }
       return; 
     }
     if (!validationRules[fieldId].validate()) {
       errorElement.textContent = validationRules[fieldId].errorMessage;
       field.classList.add("input-invalid");
-      field.classList.remove("input-valid");
+      // field.classList.remove("input-valid");
       isValid = false;
     }else {
       field.classList.remove("input-invalid");
-      field.classList.add("input-valid");
+      // field.classList.add("input-valid");
     }
   });
 
@@ -133,11 +133,11 @@ Object.keys(validationRules).forEach((fieldId) => {
       if (!validationRules[fieldId].validate()) {
         errorElement.textContent = validationRules[fieldId].errorMessage;
         field.classList.remove("input-invalid");
-        field.classList.remove("input-valid");
+        // field.classList.remove("input-valid");
       } else {
         errorElement.textContent = ""; 
         field.classList.remove("input-invalid");
-        field.classList.remove("input-valid"); 
+        // field.classList.remove("input-valid"); 
       }
       return; 
     }
@@ -145,11 +145,11 @@ Object.keys(validationRules).forEach((fieldId) => {
     if (validationRules[fieldId].validate()) {
       errorElement.textContent = "";
       field.classList.remove("input-invalid");
-      field.classList.add("input-valid");
+      // field.classList.add("input-valid");
     } else {
       errorElement.textContent = validationRules[fieldId].errorMessage;
       field.classList.add("input-invalid");
-      field.classList.remove("input-valid");
+      // field.classList.remove("input-valid");
     }
   });
 
@@ -158,11 +158,11 @@ Object.keys(validationRules).forEach((fieldId) => {
       if (!validationRules[fieldId].validate()) {
         errorElement.textContent = validationRules[fieldId].errorMessage;
         field.classList.remove("input-invalid");
-        field.classList.remove("input-valid");
+        // field.classList.remove("input-valid");
       } else {
         errorElement.textContent = ""; 
         field.classList.remove("input-invalid");
-        field.classList.remove("input-valid"); 
+        // field.classList.remove("input-valid"); 
       }
       return; 
     }
@@ -170,7 +170,7 @@ Object.keys(validationRules).forEach((fieldId) => {
     if (validationRules[fieldId].validate()) {
       errorElement.textContent = "";
       field.classList.remove("input-invalid");
-      field.classList.add("input-valid");
+      // field.classList.add("input-valid");
     }
   });
 });
